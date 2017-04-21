@@ -15,13 +15,19 @@ sed 's/VersionDependent8/VersionDependent/g' \
 sed 's/VersionDependent8/VersionDependent/g' \
 	src/main/java/org/codefx/courses/java9/jvm/multi_release/Main.java \
 	> target/mr/src-8/Main.java
-
-echo "TASK: COMPILE THE CLASSES IN target/mr/src-8 AGAINST JAVA 8"
+$JAVAC --release 8 -d target/mr/classes-8 target/mr/src-8/*.java
 
 echo "compile classes for Java 9"
 sed 's/VersionDependent9/VersionDependent/g' \
 	src/main/java/org/codefx/courses/java9/jvm/multi_release/VersionDependent9.java \
 	> target/mr/src-9/VersionDependent.java
-echo "TASK: COMPILE THE CLASSES IN target/mr/src-9 AGAINST JAVA 9"
+$JAVAC -d target/mr/classes-9 target/mr/src-9/*.java
 
-echo "TASK: PACKAGE AND RUN ON JAVA 8 AND JAVA 9"
+echo "package"
+$JAR --create --file target/mr/mr.jar -C target/mr/classes-8 . --release 9 -C target/mr/classes-9 .
+
+# echo "run with Java 8:"
+# java -cp target/mr/mr.jar java9.jvm.multi_release.Main
+
+echo "run with Java 9:"
+$JAVA --class-path target/mr/mr.jar org.codefx.courses.java9.jvm.multi_release.Main
