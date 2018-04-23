@@ -5,6 +5,8 @@ source executables.sh
 echo "--- COMPILATION ---"
 echo ""
 
-rm -rf out/*
+rm -rf target
+mkdir -p target/classes
+
 $JAVAC \
-	-d out src/java9/**/**/*.java
+	-d target/classes src/main/java/java9/**/**/*.java

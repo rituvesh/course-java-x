@@ -32,7 +32,7 @@ class PrivateInterfaceMethods {
 			return sum(numbers) % 2 == 1;
 		}
 
-		// in Java 9 just make it private
+		// in Java 9, just make it private
 		private int sum(int[] numbers) {
 			return IntStream.of(numbers).sum();
 		}

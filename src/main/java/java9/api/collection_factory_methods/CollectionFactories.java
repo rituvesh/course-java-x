@@ -44,7 +44,7 @@ public class CollectionFactories {
 	public static void orderIsUnstableAcrossRuns() {
 		// TODO:
 		// create a couple of sets and convince yourself that iteration order is stable
-		// during a program run; run iut several times to see that it changes across runs
+		// during a program run; run it several times to see that it changes across runs
 	}
 
 }

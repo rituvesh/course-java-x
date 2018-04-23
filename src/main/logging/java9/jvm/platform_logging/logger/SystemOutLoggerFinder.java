@@ -8,7 +8,8 @@ public class SystemOutLoggerFinder {
 
 	// TODO:
 	// extend `java.lang.System.LoggerFinder` and provide a `System.Logger`
-	// that logs everything to System.out, prefixing it so it is easily identifiable
+	// that logs everything to System.out, prefixing it with some arbitrary string,
+	// so it is easily identifiable
 
 	// TODO:
 	// create a module that provides `java.lang.System.LoggerFinder` as a service

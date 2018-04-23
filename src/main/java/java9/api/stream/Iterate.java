@@ -19,7 +19,7 @@ public class Iterate {
 		// TODO:
 		// use Stream::iterate to create a stream of random strings,
 		// starting with the empty string and increasing in length by one
-		// until `macLength` is reached
+		// until `maxLength` is reached
 		return Stream.empty();
 	}
 

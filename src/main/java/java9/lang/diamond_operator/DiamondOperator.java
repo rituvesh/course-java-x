@@ -8,7 +8,7 @@ class DiamondOperator {
 	class inJava8 {
 
 		<T> Box<T> createBox(T content) {
-			// we have to put the `T` here :(
+			// in Java 8, we have to put the `T` here :(
 			return new Box<T>(content) { };
 		}
 

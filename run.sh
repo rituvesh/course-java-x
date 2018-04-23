@@ -7,5 +7,5 @@ echo "--- LAUNCH ---"
 echo ""
 
 $JAVA \
-	--class-path out \
+	--class-path target/classes \
 	$1
