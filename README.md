@@ -6,11 +6,7 @@ The links below take you to the demo in this project, the JEP responsible for in
 ## Setup
 
 The scripts are written for Linux but should look similar on other operating systems.
-They do need three symlinks, though:
-
-* `java9` links to `java` in the JDK 9 install
-* `javac9` links to `javac` in the JDK 9 install
-* `jar9` links to `jar` in the JDK 9 install
+To make sure, they execute the binaries from the correct Java version, take a look at `executables.sh` and set the correct paths.
 
 ## Language Changes
 

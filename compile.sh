@@ -1,8 +1,10 @@
 #!/bin/bash
+set -e
+source executables.sh
 
 echo "--- COMPILATION ---"
 echo ""
 
 rm -rf out/*
-javac9 \
+$JAVAC \
 	-d out src/java9/**/**/*.java

@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+source executables.sh
 
 rm -rf out-mr
 mkdir -p out-mr/java-8-src
