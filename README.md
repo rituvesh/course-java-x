@@ -5,8 +5,26 @@ The links below take you to the demo in this project, the JEP responsible for in
 
 ## Setup
 
-The scripts are written for Linux but should look similar on other operating systems.
-To make sure, they execute the binaries from the correct Java version, take a look at `executables.sh` and set the correct paths.
+### Install Recent Java
+
+First, download and install [JDK 9](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html).
+Later versions will also work, but for the sake of simplicity, this course only talks about Java 9.
+
+### Build And Run From Your IDE
+
+This is a Maven project, so importing it in your IDE should be straightforward.
+You can then build and run individual classes.
+
+#### To Build And Run From Command Line
+
+Alternatively, you can use command line scripts.
+They are written for Linux but should look similar on other operating systems.
+To make sure they execute the binaries from the correct Java version, take a look at `executables.sh` and set the correct paths.
+
+To compile most classes, run `compile.sh`.
+(This does not include the more involved JVM features, which have separate scripts - see below.)
+To run a single class, call `run.sh` with its name.
+If you want to compile and run a single class, `compile-run.sh` shortcuts the two scripts.
 
 ## Language Changes
 
