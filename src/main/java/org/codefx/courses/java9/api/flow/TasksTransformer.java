@@ -11,9 +11,12 @@ import java.util.function.Function;
  * A {@link Publisher}/{@link Subscriber} that publishes the subscribed
  * {@link Tasks} after transforming them.
  */
-public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
+public class TasksTransformer
+		extends SimplePublisher<Tasks>
+		implements Subscriber<Tasks>, Publisher<Tasks> {
 
 	private final Function<Tasks, Tasks> tasksTransformer;
+	private Subscription subscription;
 
 	public TasksTransformer(Function<Tasks, Tasks> tasksTransformer) {
 		this.tasksTransformer = tasksTransformer;
@@ -26,22 +29,22 @@ public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
 
 	@Override
 	public void onSubscribe(Subscription subscription) {
-
+		this.subscription = subscription;
 	}
 
 	@Override
-	public void onNext(Tasks item) {
-
+	public void onNext(Tasks tasks) {
+		publishItem(tasksTransformer.apply(tasks));
 	}
 
 	@Override
 	public void onError(Throwable throwable) {
-
+		publishError(throwable);
 	}
 
 	@Override
 	public void onComplete() {
-
+		publishCompletion();
 	}
 
 	// PUBLISHER
@@ -52,7 +55,8 @@ public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
 	//      It publishes the items it receives after transforming them.
 
 	@Override
-	public void subscribe(Subscriber<? super Tasks> subscriber) {
-
+	void itemsRequested(long newlyRequested) {
+		subscription.request(newlyRequested);
 	}
+
 }

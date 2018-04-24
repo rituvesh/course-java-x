@@ -47,10 +47,11 @@ public class TaskManager {
 
 	public static void main(String[] args) {
 		TasksPublisher tasksPublisher = new TasksPublisher();
-//		TasksTransformer tasksFilter = new TasksTransformer(TaskManager::filterTasks);
+		TasksTransformer tasksFilter = new TasksTransformer(TaskManager::filterTasks);
 		TasksPresentingSubscriber presenter = new TasksPresentingSubscriber(new SystemOutTasksPresenter());
 
-		tasksPublisher.subscribe(presenter);
+		tasksPublisher.subscribe(tasksFilter);
+		tasksFilter.subscribe(presenter);
 
 		tasksPublisher.publishAtFixedRate(1, TimeUnit.SECONDS);
 		tasksPublisher.shutdownAfter(10, TimeUnit.SECONDS);

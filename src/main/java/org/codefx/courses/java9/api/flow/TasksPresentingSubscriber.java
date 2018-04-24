@@ -15,6 +15,7 @@ import java.util.concurrent.Flow.Subscription;
 public class TasksPresentingSubscriber implements Subscriber<Tasks> {
 
 	private final TasksPresenter presenter;
+	private Subscription subscription;
 
 	public TasksPresentingSubscriber(TasksPresenter presenter) {
 		this.presenter = presenter;
@@ -23,21 +24,29 @@ public class TasksPresentingSubscriber implements Subscriber<Tasks> {
 	@Override
 	public void onSubscribe(Subscription subscription) {
 		// TIP: Store the subscription and use it to request new `Tasks` instances
+		System.out.println(" > subscribed");
+		this.subscription = subscription;
+		System.out.println(" > request next");
+		this.subscription.request(1);
 	}
 
 	@Override
 	public void onNext(Tasks tasks) {
-
+		System.out.println(" > next tasks");
+		presenter.present(tasks);
+		System.out.println(" > request next");
+		this.subscription.request(1);
 	}
 
 	@Override
 	public void onError(Throwable throwable) {
-
+		System.out.println(" > error occurred");
+		System.out.println(throwable);
 	}
 
 	@Override
 	public void onComplete() {
-
+		System.out.println(" > printing completed");
 	}
 
 }
