@@ -47,6 +47,7 @@ The language changes are rather small and there is no real point in doing any ex
 * [`Optional` improvements](src/main/java/java9/api/optional)
 * [collection factory methods](src/main/java/java9/api/collection_factory_methods/CollectionFactories.java) (instead of collection literals; [JEP 269](http://openjdk.java.net/jeps/269))
 * [stack walking](src/main/java/java9/api/stack_walking/StackWalking.java) ([JEP 259](http://openjdk.java.net/jeps/259), [post on SitePoint](https://www.sitepoint.com/deep-dive-into-java-9s-stack-walking-api/) including benchmarks)
+* [processes](src/main/java/java9/api/processes), particularly [`TaskManager`](src/main/java/java9/api/processes/TaskManager.java) ([JEP 102](http://openjdk.java.net/jeps/102))
 
 ### JVM Features
 
