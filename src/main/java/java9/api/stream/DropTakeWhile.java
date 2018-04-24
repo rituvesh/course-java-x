@@ -45,25 +45,25 @@ public class DropTakeWhile {
 	}
 
 	public Stream<LogMessage> fromFirstWarning() {
-		// TODO:
+		// TASK:
 		// return the stream of messages that begins with the first warning
 		return messages.stream();
 	}
 
 	public Stream<LogMessage> untilBeforeFirstError() {
-		// TODO:
+		// TASK:
 		// return the stream of messages that ends _before_ the first error
 		return messages.stream();
 	}
 
 	public Stream<LogMessage> untilFirstError() {
-		// TODO:
+		// TASK:
 		// return the stream of messages that ends _with_ the first error
 		return messages.stream();
 	}
 
 	public Stream<LogMessage> fromFirstWarningToFollowingError() {
-		// TODO:
+		// TASK:
 		// return the stream of messages that starts with the first warning
 		// and ends with the first following error
 		return messages.stream();

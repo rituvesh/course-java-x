@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class IterateWeirdness {
 
 	public static void main(String[] args) {
-		// TODO:
+		// TASK:
 		// look at the code, predict the output, be surprised (I was)
 
 		IterateWeirdness iterate = new IterateWeirdness();

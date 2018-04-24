@@ -46,19 +46,19 @@ class StackWalking {
 	}
 
 	static void oldWalk() {
-		// TODO:
+		// TASK:
 		// familiarize yourself with the code and see how the old API behaves
 		StackTraceElement[] stackTrace = new Throwable().getStackTrace();
 		Arrays.stream(stackTrace).forEach(System.out::println);
 	}
 
 	static void newWalkFrames() {
-		// TODO:
+		// TASK:
 		// use `StackWalker` to print frames; experiment with different `StackWalker.Option`s
 	}
 
 	static void newWalkBingo() {
-		// TODO:
+		// TASK:
 		// use `StackWalker` to print:
 		// "<line-number>: <method-name>" followed by "Bingo!" if the method is named `one`
 	}

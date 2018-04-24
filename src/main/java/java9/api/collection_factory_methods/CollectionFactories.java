@@ -29,20 +29,20 @@ public class CollectionFactories {
 	}
 
 	public static void createCollections() {
-		// TODO:
+		// TASK:
 		// initialize the static fields with collection factory methods
 		// and print the collections
 	}
 
 	public static void collectionsAreImmutable() {
-		// TODO:
+		// TASK:
 		// try mutating the collections (but remember to catch the exceptions)
 		// and observe that immutability is not expressed in the type system
 		// (i.e. mutating methods are still visible)
 	}
 
 	public static void orderIsUnstableAcrossRuns() {
-		// TODO:
+		// TASK:
 		// create a couple of sets and convince yourself that iteration order is stable
 		// during a program run; run it several times to see that it changes across runs
 	}

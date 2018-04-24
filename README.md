@@ -26,7 +26,12 @@ To compile most classes, run `compile.sh`.
 To run a single class, call `run.sh` with its name.
 If you want to compile and run a single class, `compile-run.sh` shortcuts the two scripts.
 
-## Language Changes
+## Exercises
+
+All exercises are marked with `TASK`.
+Have a look at the `solutions` branch if you're stuck.
+
+### Language Changes
 
 The language changes are rather small and there is no real point in doing any exercises - it suffices to take a look.
 
@@ -36,14 +41,14 @@ The language changes are rather small and there is no real point in doing any ex
 * [`@SaveVarargs` on private non-final methods](src/main/java/java9/lang/safe_varargs/SafeVarargs.java) ([JEP 213](http://openjdk.java.net/jeps/213))
 * [no warnings for deprecated imports](src/main/java/java9/lang/deprecated_imports/DeprecatedImports.java) ([JEP 211](http://openjdk.java.net/jeps/211))
 
-## APIs
+### APIs
 
 * [`Stream` improvements](src/main/java/java9/api/stream)
 * [`Optional` improvements](src/main/java/java9/api/optional)
 * [collection factory methods](src/main/java/java9/api/collection_factory_methods/CollectionFactories.java) (instead of collection literals; [JEP 269](http://openjdk.java.net/jeps/269))
 * [stack walking](src/main/java/java9/api/stack_walking/StackWalking.java) ([JEP 259](http://openjdk.java.net/jeps/259), [post on SitePoint](https://www.sitepoint.com/deep-dive-into-java-9s-stack-walking-api/) including benchmarks)
 
-## JVM Features
+### JVM Features
 
 * multi-release JARs ([classes](src/main/java/java9/jvm/multi_release) and [script](multi-release.sh))
 * redirected platform logging ([classes](src/main/logging/java9/jvm/platform_logging) and [script](platform-logging.sh))

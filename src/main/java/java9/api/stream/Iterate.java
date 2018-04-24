@@ -10,13 +10,13 @@ public class Iterate {
 	}
 
 	public static Stream<Integer> forLoopUpTo(int max) {
-		// TODO:
+		// TASK:
 		// use Stream::iterate to implement `for (int i = 0; i <= max; i++)
 		return Stream.empty();
 	}
 
 	public static Stream<String> stringsUpToLength(int maxLength) {
-		// TODO:
+		// TASK:
 		// use Stream::iterate to create a stream of random strings,
 		// starting with the empty string and increasing in length by one
 		// until `maxLength` is reached
