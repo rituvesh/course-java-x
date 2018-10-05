@@ -54,7 +54,7 @@ The language changes are rather small and there is no real point in doing any ex
 * [collection factory methods](src/main/java/org/codefx/courses/java9/api/collection_factory_methods/CollectionFactories.java)
   (instead of collection literals; [JEP 269](http://openjdk.java.net/jeps/269))
 * [stack walking](src/main/java/org/codefx/courses/java9/api/stack_walking/StackWalking.java)
-  ([JEP 259](http://openjdk.java.net/jeps/259), [post on SitePoint](https://www.sitepoint.com/deep-dive-into-java-9s-stack-walking-api/) including benchmarks)
+  ([JEP 259](http://openjdk.java.net/jeps/259), [article](https://www.sitepoint.com/deep-dive-into-java-9s-stack-walking-api/) including benchmarks)
 * [processes](src/main/java/org/codefx/courses/java9/api/processes),
   particularly [`TaskManager`](src/main/java/org/codefx/courses/java9/api/processes/TaskManager.java)
   ([JEP 102](http://openjdk.java.net/jeps/102))
@@ -63,14 +63,20 @@ The language changes are rather small and there is no real point in doing any ex
 
 #### JVM Features
 
-* multi-release JARs ([classes](src/main/java/org/codefx/courses/java9/jvm/multi_release) and [script](multi-release.sh))
-* unified logging ([script](unified-logging.sh); [blog post](https://blog.codefx.org/java/unified-logging-with-the-xlog-option/))
-* redirected platform logging ([classes](src/main/logging/java9/jvm/platform_logging) and [script](platform-logging.sh))
+* multi-release JARs ([classes](src/main/java/org/codefx/courses/java9/jvm/multi_release) and [script](multi-release.sh);
+  [JEP 238](http://openjdk.java.net/jeps/238),
+  [article](https://blog.codefx.org/tools/multi-release-jars-multiple-java-versions/))
+* unified logging ([script](unified-logging.sh);
+  [JEP 158](http://openjdk.java.net/jeps/158),
+  [article](https://blog.codefx.org/java/unified-logging-with-the-xlog-option/))
+* redirected platform logging ([classes](src/main/logging/java9/jvm/platform_logging) and [script](platform-logging.sh);
+  [JEP 264](http://openjdk.java.net/jeps/264))
 
 ### Java 10
 
 #### Language Change
 
 * [local-variable type inference with `var`](src/main/java/org/codefx/courses/java10/lang/var/Var.java)
-  ([JEP 286](http://openjdk.java.net/jeps/286), [blog posts](https://blog.codefx.org/tag/var/) and
+  ([JEP 286](http://openjdk.java.net/jeps/286),
+  [article](https://blog.codefx.org/tag/var/) and
   [video](https://www.youtube.com/watch?v=Le1DbpRZdRQ&index=1&list=PL_-IO8LOLuNp2stY1qBUtXlfMdJW7wvfT))
