@@ -9,4 +9,4 @@ rm -rf target
 mkdir -p target/classes
 
 $JAVAC \
-	-d target/classes src/main/java/java9/**/**/*.java
+	-d target/classes src/main/java/org/codefx/courses/java9/**/**/*.java
