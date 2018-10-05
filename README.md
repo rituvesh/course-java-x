@@ -80,3 +80,9 @@ The language changes are rather small and there is no real point in doing any ex
   ([JEP 286](http://openjdk.java.net/jeps/286),
   [article](https://blog.codefx.org/tag/var/) and
   [video](https://www.youtube.com/watch?v=Le1DbpRZdRQ&index=1&list=PL_-IO8LOLuNp2stY1qBUtXlfMdJW7wvfT))
+
+#### JVM Features
+
+* application class-data sharing ([script](app-cds.sh);
+  [JEP 310](http://openjdk.java.net/jeps/310),
+  [article](https://blog.codefx.org/java/application-class-data-sharing/))

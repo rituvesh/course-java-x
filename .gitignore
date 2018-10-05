@@ -9,6 +9,8 @@
 *.zip
 *.tar.gz
 *.rar
+*.lst
+*.jsa
 
 hs_err_pid*
 
