@@ -64,6 +64,7 @@ The language changes are rather small and there is no real point in doing any ex
 #### JVM Features
 
 * multi-release JARs ([classes](src/main/java/org/codefx/courses/java9/jvm/multi_release) and [script](multi-release.sh))
+* unified logging ([script](unified-logging.sh); [blog post](https://blog.codefx.org/java/unified-logging-with-the-xlog-option/))
 * redirected platform logging ([classes](src/main/logging/java9/jvm/platform_logging) and [script](platform-logging.sh))
 
 ### Java 10
