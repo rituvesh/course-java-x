@@ -34,14 +34,14 @@ public class Rules {
 
 	private void var() {
 		// var is still allowed as variable and method name, just not as class name
-		String var = "var";
+		var var = "var";
 	}
 
 	private void localVariables() throws IOException {
-		URL codefx = new URL("https://codefx.org");
-		URLConnection connection = codefx.openConnection();
-		// reader needs to be closed, but not in the demo
-		BufferedReader reader = new BufferedReader(
+		var codefx = new URL("https://codefx.org");
+		// connection needs to be closed, but not in the demo
+		var connection = codefx.openConnection();
+		var reader = new BufferedReader(
 				new InputStreamReader(connection.getInputStream()));
 
 		reader.lines()
@@ -53,15 +53,15 @@ public class Rules {
 
 	private void inLoop() {
 		List<String> numbers = List.of("a", "b", "c");
-		for (String nr : numbers)
+		for (var nr : numbers)
 			System.out.print(nr + " ");
-		for (int i = 0; i < numbers.size(); i++)
+		for (var i = 0; i < numbers.size(); i++)
 			System.out.print(numbers.get(i) + " ");
 		System.out.println();
 	}
 
 	private void inTry() {
-		try (FileInputStream file = new FileInputStream(new File("no-such-file"))) {
+		try (var file = new FileInputStream(new File("no-such-file"))) {
 			new BufferedReader(new InputStreamReader(file))
 					.lines()
 					.forEach(System.out::println);
