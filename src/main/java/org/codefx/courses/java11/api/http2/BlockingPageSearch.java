@@ -20,8 +20,22 @@ public class BlockingPageSearch implements PageSearch {
 	@Override
 	public List<Result> search(List<Search> searches) {
 		return searches.stream()
-				.map(search -> Result.failed(search, new RuntimeException("Not yet implemented")))
+				.map(this::search)
 				.collect(toList());
+	}
+
+	private Result search(Search search) {
+		try {
+			HttpRequest request = HttpRequest.newBuilder()
+					.GET()
+					.uri(search.url())
+					.build();
+			HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+			boolean contains = response.body().contains(search.term());
+			return Result.completed(search, contains);
+		} catch (IOException | InterruptedException ex) {
+			return Result.failed(search, ex);
+		}
 	}
 
 }

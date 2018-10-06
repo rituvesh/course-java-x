@@ -27,9 +27,29 @@ public class AsyncPageSearch implements PageSearch {
 
 	@Override
 	public List<Result> search(List<Search> searches) {
-		return searches.stream()
-				.map(search -> Result.failed(search, new RuntimeException("Not yet implemented")))
+		CompletableFuture[] futures = searches.stream()
+				.map(search -> search(search))
+				.toArray(CompletableFuture[]::new);
+
+		CompletableFuture.allOf(futures).join();
+
+		return Stream.of(futures)
+				.map(this::getUnsafely)
 				.collect(toList());
+
+	}
+
+	private CompletableFuture<Result> search(Search search) {
+		HttpRequest request = HttpRequest.newBuilder()
+				.GET()
+				.uri(search.url())
+				.build();
+		return client
+				.sendAsync(request, BodyHandlers.ofString())
+				.thenApply(HttpResponse::body)
+				.thenApply(body -> body.contains(search.term()))
+				.thenApply(contains -> Result.completed(search,contains))
+				.exceptionally(ex -> Result.failed(search, ex));
 	}
 
 	// this may come in handy (you never know)
