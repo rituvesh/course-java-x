@@ -86,3 +86,10 @@ The language changes are rather small and there is no real point in doing any ex
 * application class-data sharing ([script](app-cds.sh);
   [JEP 310](http://openjdk.java.net/jeps/310),
   [article](https://blog.codefx.org/java/application-class-data-sharing/))
+
+### Java 11
+
+#### APIs
+
+* [reactive HTTP/2 client](src/main/java/org/codefx/courses/java11/api/http2/WikipediaSearch.java)
+  (JEPs [110](http://openjdk.java.net/jeps/110) & [321](http://openjdk.java.net/jeps/321))
