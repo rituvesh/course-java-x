@@ -34,7 +34,7 @@ public class WikipediaSearch {
 			"https://en.wikipedia.org/wiki/1919_New_Year_Honours",
 			"https://en.wikipedia.org/wiki/List_of_International_Organization_for_Standardization_standards");
 
-	private static final String SEARCH_STRING = "foo";
+	private static final String SEARCH_STRING = "Foo";
 
 	public static void main(String[] args) {
 		List<Search> searches = URLS.stream()
