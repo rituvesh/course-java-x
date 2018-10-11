@@ -14,6 +14,23 @@ import static java.util.stream.Collectors.toList;
 public class TaskManager {
 
 	/*
+	 * NOTE: This exercise uses some classes with somewhat misleading names. `TaskPublisher`
+	 *       and `TaskPresentingSubscriber` have the generic type `Tasks`, which means that
+	 *       `TaskPublisher` publishes instances of `Tasks` and `TaskPresentingSubscriber`
+	 *       consumes them. The misleading aspect is the plural name.
+	 *       It seems natural to assume that the publisher publishes `Task` (singular!)
+	 *       instances and that subscriber consumes `Task` instances. That may be the
+	 *       more fitting approach in general, but isn't a good fit in this specific case.
+	 *
+	 *       First, a task manager like the one you're working on usually updates all
+	 *       tasks at once (as opposed to one by one). Second, if the APIs would deal with
+	 *       `Task` instances, the publisher would have to decide which individual process
+	 *       to wrap into a `Task` and publish next - there is no obvious way to fo that.
+	 *
+	 *       So, in conclusion, from the perspective of the publisher and subscriber,
+	 *       `Tasks` (plural!) is the indivisible unit they handle and if, for example
+	 *       subscriber, requests one item, it will receive one `Tasks` instance.
+	 *
 	 * TASK: Implement the empty methods in `TaskPresentingSubscriber` so that it presents
 	 *       received `Tasks` instances with the `presenter`.
 	 *
@@ -29,14 +46,14 @@ public class TaskManager {
 	 */
 
 	public static void main(String[] args) {
-		TasksPublisher taskPublisher = new TasksPublisher();
-//		TasksTransformer taskFilter = new TasksTransformer(TaskManager::filterTasks);
+		TasksPublisher tasksPublisher = new TasksPublisher();
+//		TasksTransformer tasksFilter = new TasksTransformer(TaskManager::filterTasks);
 		TasksPresentingSubscriber presenter = new TasksPresentingSubscriber(new SystemOutTasksPresenter());
 
-		taskPublisher.subscribe(presenter);
+		tasksPublisher.subscribe(presenter);
 
-		taskPublisher.publishAtFixedRate(1, TimeUnit.SECONDS);
-		taskPublisher.shutdownAfter(10, TimeUnit.SECONDS);
+		tasksPublisher.publishAtFixedRate(1, TimeUnit.SECONDS);
+		tasksPublisher.shutdownAfter(10, TimeUnit.SECONDS);
 	}
 
 	private static Tasks filterTasks(Tasks tasks) {

@@ -6,6 +6,21 @@ import java.util.Set;
 
 public class CollectionFactories {
 
+	/*
+	 * TASK: In `createCollections`, initialize the static fields with
+	 *       collection factory methods and print the collections.
+	 *
+	 * TASK: In `collectionsAreImmutable`, try mutating the collections
+	 *       (but remember to catch the exceptions) and observe that
+	 *       immutability is not expressed in the type system (i.e.
+	 *       mutating methods are still visible).
+	 *
+	 * TASK: In `orderIsUnstableAcrossRuns`, create a couple of sets and
+	 *       convince yourself that iteration order is stable during a
+	 *       program run; run it several times to see that it changes
+	 *       across runs.
+	 */
+
 	private static List<String> list;
 	private static Set<String> set;
 	private static Map<String, Integer> map;
@@ -29,22 +44,12 @@ public class CollectionFactories {
 	}
 
 	public static void createCollections() {
-		// TASK:
-		// initialize the static fields with collection factory methods
-		// and print the collections
 	}
 
 	public static void collectionsAreImmutable() {
-		// TASK:
-		// try mutating the collections (but remember to catch the exceptions)
-		// and observe that immutability is not expressed in the type system
-		// (i.e. mutating methods are still visible)
 	}
 
 	public static void orderIsUnstableAcrossRuns() {
-		// TASK:
-		// create a couple of sets and convince yourself that iteration order is stable
-		// during a program run; run it several times to see that it changes across runs
 	}
 
 }

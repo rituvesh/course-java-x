@@ -50,7 +50,7 @@ public class WikipediaSearch {
 	}
 
 	private static HttpClient createHttpClient() {
-		return HttpClient.newBuilder().build();
+		throw new RuntimeException("Not yet implemented.");
 	}
 
 	private static void search(PageSearch pageSearch, List<Search> searches) {

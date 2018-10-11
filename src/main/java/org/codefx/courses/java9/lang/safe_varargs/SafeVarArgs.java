@@ -32,7 +32,7 @@ class SafeVarArgs {
 
 		@SafeVarargs
 		// here we go with Java 9
-		private final <T> Optional<T> firstNonNull(T... args) {
+		private <T> Optional<T> firstNonNull(T... args) {
 			return stream(args)
 					.filter(Objects::nonNull)
 					.findFirst();
