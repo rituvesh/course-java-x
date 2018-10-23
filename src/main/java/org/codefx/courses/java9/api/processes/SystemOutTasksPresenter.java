@@ -97,7 +97,6 @@ public class SystemOutTasksPresenter implements TasksPresenter {
 
 		int abbrevMarkerLength = abbrevMarker.length();
 		int minAbbrevWidth = abbrevMarkerLength + 1;
-		int minAbbrevWidthOffset = abbrevMarkerLength + abbrevMarkerLength + 1;
 
 		if (maxWidth < minAbbrevWidth) {
 			throw new IllegalArgumentException(String.format("Minimum abbreviation width is %d", minAbbrevWidth));
@@ -105,14 +104,7 @@ public class SystemOutTasksPresenter implements TasksPresenter {
 		if (str.length() <= maxWidth) {
 			return str;
 		}
-		if (maxWidth < minAbbrevWidthOffset) {
-			throw new IllegalArgumentException(
-					String.format("Minimum abbreviation width with offset is %d", minAbbrevWidthOffset));
-		}
-		if (maxWidth - abbrevMarkerLength < str.length()) {
-			return abbrevMarker + abbreviate(str, abbrevMarker, maxWidth - abbrevMarkerLength);
-		}
-		return abbrevMarker + str.substring(str.length() - (maxWidth - abbrevMarkerLength));
+		return str.substring(0, maxWidth - abbrevMarkerLength) + abbrevMarker;
 	}
 
 	public static String abbreviateMiddle(String str, String middle, int length) {
