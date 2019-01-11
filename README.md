@@ -9,15 +9,18 @@ The links below take you to the demo in this project, the JEP responsible for in
 
 First, download and install [OpenJDK 11](http://jdk.java.net/11).
 
-### Build And Run From Your IDE
+### Build And Run
+
+#### From Your IDE
 
 This is a Maven project, so importing it in your IDE should be straightforward.
 You can then build and run individual classes.
 
-#### To Build And Run From Command Line
+#### From Command Line
 
 Alternatively, you can use command line scripts.
 They are written for Linux but should look similar on other operating systems.
+(If you want to edit them or write a new script for your OS, check out [this cheat sheet](https://blog.codefx.org/cheat-sheet-build-run-modules-jars.html) for `javac`, `jar`, and `java`.)
 To make sure they execute the binaries from the correct Java version, take a look at `executables.sh` and set the correct paths.
 
 To compile most classes, run `compile.sh`.
