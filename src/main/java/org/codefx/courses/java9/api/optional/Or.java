@@ -16,7 +16,7 @@ public class Or {
 				.forEach(System.out::println);
 	}
 
-	public static Optional load(String id) {
+	public static Optional<Customer> load(String id) {
 		// TASK:
 		// chain the `from` methods and return the first non-empty Optional
 		// (if one exists)
