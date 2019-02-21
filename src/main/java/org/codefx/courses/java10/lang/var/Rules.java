@@ -13,26 +13,23 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public class Var {
+public class Rules {
 
 	/*
 	 * TASK: Go through this class and try to replace every type with `var`.
 	 *
-	 * OBSERVE: See where it works and where it doesn't as well as where it
-	 *          improves readability and where it doesn't.
+	 * OBSERVE: See where it works and where it doesn't.
 	 */
 
-	private String codeFx = "http://codefx.org";
-
 	public static void main(String[] args) throws Exception {
-		Var var = new Var();
-		var.var();
+		Rules rules = new Rules();
+		rules.var();
 
-		var.localVariables();
-		var.inLoop();
-		var.inTry();
-		var.incompleteInitializers();
-		var.polyExpressions();
+		rules.localVariables();
+		rules.inLoop();
+		rules.inTry();
+		rules.incompleteInitializers();
+		rules.polyExpressions();
 	}
 
 	private void var() {
@@ -41,9 +38,9 @@ public class Var {
 	}
 
 	private void localVariables() throws IOException {
-		URL codefx = new URL(codeFx);
-		// connection needs to be closed, but not in the demo
+		URL codefx = new URL("https://codefx.org");
 		URLConnection connection = codefx.openConnection();
+		// reader needs to be closed, but not in the demo
 		BufferedReader reader = new BufferedReader(
 				new InputStreamReader(connection.getInputStream()));
 
@@ -107,8 +104,13 @@ public class Var {
 	}
 
 	private void withLiterals() {
-		long l = 3;
+		long l = 42;
 		l = Long.MAX_VALUE;
+
+		// replace with `var` and ask your IDE what type they are
+		// (e.g. CTRL+Q in IntelliJ)
+		byte b = 42;
+		short s = 42;
 	}
 
 }

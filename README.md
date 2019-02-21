@@ -79,7 +79,7 @@ The language changes are rather small and there is no real point in doing any ex
 
 #### Language Change
 
-* [local-variable type inference with `var`](src/main/java/org/codefx/courses/java10/lang/var/Var.java)
+* [local-variable type inference with `var`](src/main/java/org/codefx/courses/java10/lang/var)
   ([JEP 286](http://openjdk.java.net/jeps/286),
   [article](https://blog.codefx.org/tag/var/) and
   [video](https://www.youtube.com/watch?v=Le1DbpRZdRQ&index=1&list=PL_-IO8LOLuNp2stY1qBUtXlfMdJW7wvfT))
