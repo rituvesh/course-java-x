@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 class TeeingCollectorTests {
 
 	@Test

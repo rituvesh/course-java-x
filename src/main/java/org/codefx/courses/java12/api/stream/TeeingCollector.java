@@ -20,11 +20,20 @@ public class TeeingCollector {
 	 */
 
 	public static Statistics computeStats(Stream<Integer> numbers) {
-		return Statistics.of(0, 0);
+		return numbers
+				.collect(teeing(
+						summingInt(i -> i),
+						averagingInt(i -> i),
+						Statistics::of));
 	}
 
 	public static Optional<Range<String>> computeRangeFromMinToMax(Stream<String> words) {
-		return Optional.empty();
+		Comparator<String> lexicographic = Comparator.<String>naturalOrder();
+		return words
+				.collect(teeing(
+						minBy(lexicographic),
+						maxBy(lexicographic),
+						Range::ofOptional));
 	}
 
 	public static class Statistics {
