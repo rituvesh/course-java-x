@@ -97,3 +97,9 @@ The language changes are rather small and there is no real point in doing any ex
 * [`String` improvements](src/main/java/org/codefx/courses/java11/api/string/LinesStripRepeat.java)
 * [reactive HTTP/2 client](src/main/java/org/codefx/courses/java11/api/http2/WikipediaSearch.java)
   (JEPs [110](http://openjdk.java.net/jeps/110) & [321](http://openjdk.java.net/jeps/321))
+
+#### JVM Features
+
+* [single-source-file execution](Echo.java)
+  ([JEP 330](https://openjdk.java.net/jeps/330),
+  [article](https://blog.codefx.org/java/scripting-java-shebang))
