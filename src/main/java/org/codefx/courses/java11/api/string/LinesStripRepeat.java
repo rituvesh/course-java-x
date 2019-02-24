@@ -16,7 +16,10 @@ public class LinesStripRepeat {
 	 */
 
 	public static String linewiseStripRepeat(String input){
-		return "";
+		return input.lines()
+				.map(String::strip)
+				.map(line -> line.startsWith("_") ? line.repeat(2) : line)
+				.collect(joining("|"));
 	}
 
 }
