@@ -12,7 +12,12 @@ public class SwitchExpression {
 	public static UnitSystem convert(Country country) {
 		// HINT: use switch expression and arrow form
 		// OBSERVE: you don't need a `default` clause
-		throw new IllegalArgumentException();
+		return switch (country) {
+			case GERMANY -> METRIC;
+			case VIETNAM -> METRIC;
+			case USA -> IMPERIAL;
+			case UNKNOWN -> throw new IllegalArgumentException();
+		};
 	}
 
 }

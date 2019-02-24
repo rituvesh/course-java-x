@@ -16,7 +16,6 @@ import static org.codefx.courses.java12.lang.switch_.Country.VIETNAM;
 import static org.codefx.courses.java12.lang.switch_.UnitSystem.IMPERIAL;
 import static org.codefx.courses.java12.lang.switch_.UnitSystem.METRIC;
 
-@Disabled
 class SwitchEvolutionTests {
 
 	@Nested
