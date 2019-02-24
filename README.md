@@ -103,3 +103,12 @@ The language changes are rather small and there is no real point in doing any ex
 * [single-source-file execution](Echo.java)
   ([JEP 330](https://openjdk.java.net/jeps/330),
   [article](https://blog.codefx.org/java/scripting-java-shebang))
+
+### Java 12
+
+#### Language
+
+* [`switch` expression](src/main/java/org/codefx/courses/java12/lang/switch_)
+  ([JEP 325](https://openjdk.java.net/jeps/325),
+  [article](https://blog.codefx.org/java/switch-expressions) and
+  [video](https://www.youtube.com/watch?v=1znHEf3oSNI&list=PL_-IO8LOLuNp2stY1qBUtXlfMdJW7wvfT))
