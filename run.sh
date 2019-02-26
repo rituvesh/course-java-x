@@ -6,6 +6,6 @@ echo ""
 echo "--- LAUNCH ---"
 echo ""
 
-$JAVA \
+$JAVA --enable-preview \
 	--class-path target/classes \
 	$1

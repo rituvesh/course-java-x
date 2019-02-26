@@ -8,5 +8,5 @@ echo ""
 rm -rf target
 mkdir -p target/classes
 
-$JAVAC \
+$JAVAC --source 12 --enable-preview \
 	-d target/classes src/main/java/org/codefx/courses/**/**/**/*.java
