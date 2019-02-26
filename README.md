@@ -1,13 +1,13 @@
-# Java 9/10/11 Course
+# Java 9 to 12 Course
 
-Teaches you the ins and outs of Java 9/10/11 (not the module system, though).
-The links below take you to the demo in this project, the JEP responsible for introducing the feature, and to other sources if available.
+Teaches you the ins and outs of Java 9, 10, 11, and 12 (not the module system, though).
+The links below take you to the exercises in this project, the JEP responsible for introducing the feature, and to other sources if available.
 
 ## Setup
 
 ### Install Recent Java
 
-First, download and install [OpenJDK 11](http://jdk.java.net/11).
+First, download and install [OpenJDK 12](http://jdk.java.net/12).
 
 ### Build And Run
 
