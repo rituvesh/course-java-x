@@ -116,3 +116,12 @@ The language changes are rather small and there is no real point in doing any ex
 #### APIs
 
 * [teeing collector](src/main/java/org/codefx/courses/java12/api/stream/TeeingCollector.java)
+
+
+
+# TODO
+
+* add tests for reactive streams (and HTTP client?)
+* incorrect error handling in reactive HTTP/2 solution
+* streamline Collectors.teeing solution with `String::compareTo` as `Comparator<String>`
+* add JAR for App CDS (using the project's JAR doesn't work because of preview features; or does it? it may have failed beause of Java 11)
