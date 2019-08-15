@@ -100,7 +100,7 @@ The language changes are rather small and there is no real point in doing any ex
 
 #### JVM Features
 
-* [single-source-file execution](Echo.java)
+* [single-source-file execution](echo)
   ([JEP 330](https://openjdk.java.net/jeps/330),
   [article](https://blog.codefx.org/java/scripting-java-shebang))
 

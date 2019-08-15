@@ -2,6 +2,7 @@ package org.codefx.courses.java9.api.processes;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -31,6 +32,17 @@ public class TaskManager {
 		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleAtFixedRate(taskManager::presentTasks, 1, 1, TimeUnit.SECONDS);
 		scheduler.schedule(scheduler::shutdown, 10, TimeUnit.SECONDS);
+
+		List<String> list = List.of("a", "b", "c");
+		Map<String, Integer> mapImmediate = Map.of(
+				"one", 1,
+				"two", 2,
+				"three", 3);
+		Map<String, Integer> mapEntries = Map.ofEntries(
+				Map.entry("one", 1),
+				Map.entry("two", 2),
+				Map.entry("three", 3));
+
 	}
 
 	private static Tasks filterTasks(Tasks tasks) {

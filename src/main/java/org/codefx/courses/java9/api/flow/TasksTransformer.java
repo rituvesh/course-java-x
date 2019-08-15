@@ -15,6 +15,10 @@ public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
 
 	private final Function<Tasks, Tasks> tasksTransformer;
 
+	private Subscription subscription;
+	private Subscriber subscriber;
+
+
 	public TasksTransformer(Function<Tasks, Tasks> tasksTransformer) {
 		this.tasksTransformer = tasksTransformer;
 	}
@@ -26,11 +30,16 @@ public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
 
 	@Override
 	public void onSubscribe(Subscription subscription) {
-
+		this.subscription = subscription;
+		subscription.request(1);
 	}
 
 	@Override
 	public void onNext(Tasks item) {
+		Tasks tasks = tasksTransformer.apply(item);
+		subscriber.onNext(tasks);
+
+
 
 	}
 
@@ -54,5 +63,17 @@ public class TasksTransformer implements Subscriber<Tasks>, Publisher<Tasks> {
 	@Override
 	public void subscribe(Subscriber<? super Tasks> subscriber) {
 
+		this.subscriber =subscriber;
+		subscriber.onSubscribe(new Subscription() {
+			@Override
+			public void request(long n) {
+				subscription.request(n);
+			}
+
+			@Override
+			public void cancel() {
+				subscription.cancel();
+			}
+		});
 	}
 }

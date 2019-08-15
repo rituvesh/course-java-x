@@ -1,8 +1,10 @@
 package org.codefx.courses.java9.api.collection_factory_methods;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class CollectionFactories {
 
@@ -44,12 +46,52 @@ public class CollectionFactories {
 	}
 
 	public static void createCollections() {
+		list = List.of("a", "b", "c");
+		set = Set.of("a", "b", "c");
+		map = Map.of(
+				"one", 1,
+				"two", 2,
+				"three", 3);
+		map = Map.ofEntries(
+				Map.entry("one", 1),
+				Map.entry("two", 2),
+				Map.entry("three", 3));
+
+		Stream.of(list, set, map).forEach(System.out::print);
+		System.out.println();
+
 	}
 
 	public static void collectionsAreImmutable() {
+
+		addToCollection(list, "d");
+		addToCollection(set, "d");
+		addToCollection(map.entrySet(), Map.entry("two", 2));
+	}
+
+	private static <T> void addToCollection(Collection<T> collection, T item) {
+		try {
+			collection.add(item);
+			throw new IllegalStateException();
+		} catch (UnsupportedOperationException ex) {
+			System.out.println("Could not mutate " + collection);
+		}
 	}
 
 	public static void orderIsUnstableAcrossRuns() {
+		Stream.of(
+				Set.of("a", "b", "c"),
+				Set.of("a", "b", "c"),
+				Set.of("a", "b", "c"))
+				.forEach(System.out::println);
+
+		System.out.println(Set.of("a","b","c","d", "e"));
+		System.out.println(Set.of("a","b","c","d"));
+		System.out.println(Set.of("a","b","c","d"));
+		System.out.println(Set.of("a","b","c","d"));
+		System.out.println(Set.of("a","b","c","d"));
+		System.out.println(Set.of("a","b","c","d"));
+
 	}
 
 }

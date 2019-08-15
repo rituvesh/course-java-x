@@ -20,6 +20,14 @@ public class Task {
 		this.start = start;
 	}
 
+	static Task fromProcessHandle(ProcessHandle handle) {
+		long pid = handle.pid();
+		Optional<String> command = handle.info().command();
+		Optional<String> user = handle.info().user();
+		Optional<Instant> start = handle.info().startInstant();
+		return new Task(pid, command, user, start);
+	}
+
 	@Override
 	public String toString() {
 		return "[" +

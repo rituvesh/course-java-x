@@ -1,6 +1,7 @@
 package org.codefx.courses.java9.api.processes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -15,7 +16,12 @@ public class Tasks {
 	}
 
 	public static Tasks all() {
-		return new Tasks(List.of());
+		List<Task> tasks = ProcessHandle
+				.allProcesses()
+				.map(Task::fromProcessHandle)
+				.collect(Collectors.toList());
+		return new Tasks(tasks);
+
 	}
 
 	public static Tasks of(List<Task> tasks) {

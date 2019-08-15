@@ -16,16 +16,39 @@ class SwitchEvolution {
 
 	public static UnitSystem convertWithMultipleCaseLabels(Country country) {
 		// HINT: use multiple case labels
-		throw new IllegalArgumentException();
+		return switch(country) {
+			case GERMANY, VIETNAM -> METRIC;
+			case USA -> IMPERIAL;
+			case UNKNOWN -> throw new IllegalArgumentException();
+		};
 	}
 
 	public static void logUnitSystemMessage(Country country, Consumer<String> logger) {
 		// OBSERVE: even without `break`, `return`, or `{}`, there is no fall-through
+		 switch (country) {
+			case GERMANY, VIETNAM ->
+				logger.accept(METRIC.toString());
+
+			case USA ->
+				logger.accept(IMPERIAL.toString());
+
+			case UNKNOWN -> throw new IllegalArgumentException();
+		};
 	}
 
 	public static UnitSystem convertAndLogUnitSystemMessage(Country country, Consumer<String> logger) {
 		// OBSERVE: in arrow form, try to `return` a value
-		throw new IllegalArgumentException();
+		return switch (country) {
+			case GERMANY, VIETNAM -> {
+				logger.accept(METRIC.toString());
+				break METRIC;
+			}
+			case USA -> {
+				logger.accept(IMPERIAL.toString());
+				break IMPERIAL;
+			}
+			case UNKNOWN -> throw new IllegalArgumentException();
+		};
 	}
 
 }
