@@ -23,6 +23,7 @@ public class WikipediaSearch {
 	 */
 
 	private static final List<String> URLS = List.of(
+			"https://hi.wikipedia.org/wiki/%E0%A4%A4%E0%A4%A4%E0%A5%8D%E0%A4%B8%E0%A4%AE",
 			"https://en.wikipedia.org/wiki/List_of_compositions_by_Franz_Schubert",
 			"https://en.wikipedia.org/wiki/2018_in_American_television",
 			"https://en.wikipedia.org/wiki/List_of_compositions_by_Johann_Sebastian_Bach",
@@ -50,7 +51,7 @@ public class WikipediaSearch {
 	}
 
 	private static HttpClient createHttpClient() {
-		throw new RuntimeException("Not yet implemented.");
+		return HttpClient.newBuilder().build();
 	}
 
 	private static void search(PageSearch pageSearch, List<Search> searches) {
