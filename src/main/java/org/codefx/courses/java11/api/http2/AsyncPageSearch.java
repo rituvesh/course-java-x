@@ -28,7 +28,7 @@ public class AsyncPageSearch implements PageSearch {
 	@Override
 	public List<Result> search(List<Search> searches) {
 		CompletableFuture[] futures = searches.stream()
-				.map(search -> search(search))
+				.map(search -> searchIndividual(search))
 				.toArray(CompletableFuture[]::new);
 
 		System.out.println("Waiting for the future to complete.");
@@ -45,9 +45,9 @@ public class AsyncPageSearch implements PageSearch {
 
 
 
-	private CompletableFuture<Result> search(Search search){
-		var request = HttpRequest.newBuilder()
-				.GET().uri(search.url()).build();
+	private CompletableFuture<Result> searchIndividual(Search search){
+		var request = HttpRequest.newBuilder().GET().uri(search.url()).build();
+
 		return client.sendAsync(request, BodyHandlers.ofString())
 				.thenApply(HttpResponse -> HttpResponse.body())
 				.thenApply(body	-> body.contains(search.term()))
