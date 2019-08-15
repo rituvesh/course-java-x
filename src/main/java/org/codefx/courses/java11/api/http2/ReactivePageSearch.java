@@ -30,9 +30,83 @@ public class ReactivePageSearch implements PageSearch {
 
 	@Override
 	public List<Result> search(List<Search> searches) {
-		return searches.stream()
-				.map(search -> Result.failed(search, new RuntimeException("Not yet implemented")))
+		CompletableFuture[] futures = searches.stream()
+				.map(search -> search(search))
+				.toArray(CompletableFuture[]::new);
+
+		CompletableFuture.allOf(futures).join();
+
+		return Stream.of(futures)
+				.map(this::getUnsafely)
 				.collect(toList());
+	}
+
+	private CompletableFuture<Result> search(Search search) {
+		HttpRequest request = HttpRequest.newBuilder()
+				.GET()
+				.uri(search.url())
+				.build();
+		StringFinder finder = new StringFinder(search);
+		client
+				.sendAsync(request, BodyHandlers.fromLineSubscriber(finder))
+				// forward errors that do not show up via response,
+				// e.g. connection problems (try when offline)
+				.exceptionally(ex -> {
+					finder.onError(ex);
+					return null;
+				});
+		return finder
+				.exceptionally(ex -> Result.failed(search, ex));
+	}
+
+	private Result getUnsafely(CompletableFuture<Result> result) {
+		try {
+			return result.get();
+		} catch (ExecutionException | InterruptedException ex) {
+			throw new IllegalStateException("Future should have completed and handled errors.", ex);
+		}
+	}
+
+	private static class StringFinder extends CompletableFuture<Result> implements Subscriber<String> {
+
+		private final Search search;
+		private Subscription subscription;
+
+		private StringFinder(Search search) {
+			this.search = search;
+		}
+
+		@Override
+		public void onSubscribe(Subscription subscription) {
+			this.subscription = subscription;
+			subscription.request(1);
+		}
+
+		@Override
+		public void onNext(String line) {
+			if (line.contains(search.term())) {
+				complete(Result.completed(search, true));
+				// cancelling the subscription causes the
+				// `CompletableFuture<HttpResponse<Void>>`
+				// to complete exceptionally, which would
+				// fail this CompletableFuture;
+				// hence, cancel after completion
+				subscription.cancel();
+			} else {
+				subscription.request(1);
+			}
+		}
+
+		@Override
+		public void onError(Throwable ex) {
+			completeExceptionally(ex);
+		}
+
+		@Override
+		public void onComplete() {
+			complete(Result.completed(search, false));
+		}
+
 	}
 
 }
